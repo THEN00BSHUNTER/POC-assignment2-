@@ -1,0 +1,27 @@
+-------------------- For 100 requests for top 10 between 2000 and 2010--------------------
+With Redis Cache
+Average Response Time: 0.028356361389160156
+50th Percentile: 0.027638554573059082
+90th Percentile: 0.031369471549987794
+Without Redis Cache
+Average Response Time: 0.029521543979644776
+50th Percentile: 0.028044819831848145
+90th Percentile: 0.03491668701171875
+Without Cache
+Average Response Time: 0.07122607946395874
+50th Percentile: 0.0702512264251709
+90th Percentile: 0.07517027854919434
+
+-------------------- For 100 requests for top 100 between 1955 and 2020--------------------
+With Redis Cache
+Average Response Time: 0.032859783172607425
+50th Percentile: 0.03259110450744629
+90th Percentile: 0.03555877208709717
+Without Redis Cache
+Average Response Time: 0.035243880748748777
+50th Percentile: 0.03464019298553467
+90th Percentile: 0.040000104904174806
+Without Cache
+Average Response Time: 0.09950345039367675
+50th Percentile: 0.0992124080657959
+90th Percentile: 0.10513956546783447
