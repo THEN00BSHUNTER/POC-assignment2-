@@ -1,9 +1,13 @@
 from pymongo import MongoClient
 from bson.objectid import ObjectId
 import datetime
+import dotenv
+import os
+
+dotenv.load_dotenv()
 
 # Make sure to replace the connection string with your own
-client = MongoClient("Link")
+client = MongoClient(os.getenv('MONGO_LINK'))
 
 db = client['sample_mflix']
 comments = db['comments']
@@ -12,15 +16,13 @@ comments = db['comments']
 start_date = datetime.datetime(2000, 1, 1)
 end_date = datetime.datetime(2001, 1, 1)
 
-#MongoDB aggregation pipeline to group by movie_id and count the comments
+# MongoDB aggregation pipeline to group by movie_id and count the comments
 pipeline = [
     {"$match": {"date": {"$gte": start_date, "$lt": end_date}}},
     {"$group": {"_id": "$movie_id", "count": {"$sum": 1}}},
     {"$sort": {"count": -1}},
     {"$limit": 10}
 ]
-
-
 
 top_movies = list(comments.aggregate(pipeline))
 print(top_movies)
@@ -52,5 +54,3 @@ for movie_id in movie_ids_to_fetch:
     else:
         print(f"Movie details not found for Movie ID: {movie_id}")
 print("________________________________________________________________")
-
-
