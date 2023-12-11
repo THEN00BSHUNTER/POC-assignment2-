@@ -1,0 +1,6 @@
+pymongo
+python-dotenv
+redis
+matplotlib
+numpy
+Flask
